@@ -1,10 +1,10 @@
 -- completed in July 2023
 
--- dropping tables libraries and employees (from ha3)
+-- dropping tables libraries and employees
 drop table libraries cascade constraints;
 drop table employees cascade constraints;
 
--- creating tables libraries and employees (from ha3)
+-- creating tables libraries and employees
 create table libraries (
    lib_id               INTEGER               not null,
    lib_name             VARCHAR2(50)          not null,
@@ -238,7 +238,7 @@ insert into loans (loan_id, book_id, user_id, lib_id, loan_status, due_date, ret
 insert into loans (loan_id, book_id, user_id, lib_id, loan_status, due_date, return_date, late_return) values (loan_seq.nextval, 174, 200, 8, 0, TO_DATE('2023-06-25', 'YYYY-MM-DD'), TO_DATE('2023-06-24', 'YYYY-MM-DD'), 1);
 insert into loans (loan_id, book_id, user_id, lib_id, loan_status, due_date, return_date, late_return) values (loan_seq.nextval, 175, 201, 9, 0, TO_DATE('2023-06-25', 'YYYY-MM-DD'), TO_DATE('2023-06-30', 'YYYY-MM-DD'), 1);
 
-
+-------------------------------------------------------------------------------------------------------------------
 
 -- 1. overwriting database table data
 declare cursor c_overwrite is
@@ -331,15 +331,7 @@ begin
     DBMS_OUTPUT.PUT_LINE('Sum of emp_id in ' || table_name || ': ' || sum_result);
 end;
 
-  
-
-
-
-
-
-
-
--- start of home assignment 5
+-------------------------------------------------------------------------------------------------------------------
 
 -- dropping views
 drop view view1;
@@ -579,13 +571,7 @@ model partition by (dim1)
       measures (facts)
       rules (facts['dim2', 'dim3'] = facts['dim3', 'dim2']);
 
-
-
-
-
-
-
--- start of home assignment 4
+-------------------------------------------------------------------------------------------------------------------
 
 -- 4.1. query with one table and multiple conditions in where clause
 select books.book_name, readers.user_full_name
@@ -759,13 +745,8 @@ right join loans on libraries.lib_id = loans.lib_id
 where libraries.lib_id between 8 and 17 and libraries.lib_name != 'Library 10'
 group by libraries.lib_name;
 
+-------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
--- start of home assignment 3
 -- heap organized table
 
 -- request all records
@@ -780,8 +761,6 @@ from libraries;
 select *
 from libraries
 where lib_id = 1;
-
-
 
 -- b-tree index
 
@@ -811,8 +790,6 @@ select *
 from emp_lib
 where emp_id = 100;
 
-
-
 -- bitmap join index
 
 -- creating bitmap index
@@ -831,8 +808,6 @@ from emp_lib;
 select *
 from emp_lib
 where emp_id = 102;
-
-
 
 -- indexed cluster
 
@@ -887,8 +862,6 @@ select *
 from libraries_cluster
 where lib_name = 'Library 1';
 
-
-
 -- hash cluster
 
 -- dropping cluster
@@ -939,8 +912,6 @@ from libraries_hash;
 select *
 from employees_hash
 where emp_full_name = 'Khanim Sultanova';
-
-
 
 -- index organized table
 
