@@ -1,3 +1,5 @@
+-- completed in July 2023
+
 -- dropping tables libraries and employees (from ha3)
 drop table libraries cascade constraints;
 drop table employees cascade constraints;
