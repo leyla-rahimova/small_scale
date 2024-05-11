@@ -1,4 +1,5 @@
 # the program finds the biggest increase (difference) in a sequence of integers provided in a file separated by new line.
+# increase is defined by the biggest difference n2-n1 where n2 comes after n1 in a particular file.
 # the algorithmic complexity of the program is Θ(n).
 
 def max_increase(numbers):
